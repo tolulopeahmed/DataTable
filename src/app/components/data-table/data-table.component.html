@@ -1,0 +1,125 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo-container">
+    <span class="title">DataTable</span>
+  </div>
+
+  <div class="search-filter-container">
+    <!-- Dropdown Filter -->
+    <select
+      [(ngModel)]="selectedFilter"
+      (change)="filterData()"
+      class="filter-input"
+    >
+      <option value="">Filter by...</option>
+      <option value="">All</option>
+      <option value="title">Title</option>
+      <option value="body">Body</option>
+    </select>
+
+    <!-- Search Input -->
+    <input
+      type="text"
+      placeholder="Search..."
+      [(ngModel)]="searchTerm"
+      (input)="filterData()"
+      class="search-container"
+    />
+  </div>
+</nav>
+
+<!-- Data Table -->
+<div class="container">
+  <h2 class="data-table-header">Data Table</h2>
+  <p class="data-table-subtitle">
+    A simple and efficient way to display tabular data.
+  </p>
+
+  <div *ngIf="isLoading" class="loading">Loading data...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <table *ngIf="!isLoading && !errorMessage && paginatedData.length">
+    <thead>
+      <tr>
+        <th (click)="sortData('id')">
+          <div class="header-content">
+            <div class="sort-icons">
+              <span
+                [class.active]="sortColumn === 'id' && sortDirection === 'asc'"
+                >▲</span
+              >
+              <span
+                [class.active]="sortColumn === 'id' && sortDirection === 'desc'"
+                >▼</span
+              >
+            </div>
+            ID
+          </div>
+        </th>
+        <th (click)="sortData('title')">
+          <div class="header-content">
+            <div class="sort-icons">
+              <span
+                [class.active]="
+                  sortColumn === 'title' && sortDirection === 'asc'
+                "
+                >▲</span
+              >
+              <span
+                [class.active]="
+                  sortColumn === 'title' && sortDirection === 'desc'
+                "
+                >▼</span
+              >
+            </div>
+            Title
+          </div>
+        </th>
+        <th (click)="sortData('body')">
+          <div class="header-content">
+            <div class="sort-icons">
+              <span
+                [class.active]="
+                  sortColumn === 'body' && sortDirection === 'asc'
+                "
+                >▲</span
+              >
+              <span
+                [class.active]="
+                  sortColumn === 'body' && sortDirection === 'desc'
+                "
+                >▼</span
+              >
+            </div>
+            Body
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of paginatedData">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div
+    *ngIf="!isLoading && !errorMessage && paginatedData.length === 0"
+    class="no-data"
+  >
+    No records found.
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-container" *ngIf="totalPages > 1">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+</div>

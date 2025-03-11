@@ -1,0 +1,217 @@
+// Global styles
+body {
+  background-color: #d1adf2 !important; // Very light purple with !important
+  font-family: "Karla", sans-serif; // Default font
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+// Navbar styles
+.navbar {
+  background-color: rgb(79, 1, 71);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #53005e;
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo-container .title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.search-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-right: 100px;
+}
+
+/* Apply the same styling to both elements */
+.filter-input,
+.search-container {
+  flex: 1;
+  padding: 12px; // Uniform padding
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  height: 42px !important; // Force same height
+  background-color: white;
+  color: #4c28bc;
+  box-sizing: border-box; // Ensures padding doesn't affect height
+}
+
+/* Fix for dropdown to match search bar */
+.filter-input {
+  appearance: none; // Removes default browser styles
+  cursor: pointer;
+}
+
+/* Fix placeholder styling */
+.search-container::placeholder {
+  font-style: italic;
+  color: #888;
+}
+
+.navbar .logo {
+  width: 40px; // Adjust as needed
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: "Agrandir", "Proxima Nova Bold", sans-serif;
+}
+
+// Data Table Header
+.data-table-header {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: "Agrandir", "Proxima Nova Bold", sans-serif;
+  background: linear-gradient(to right, #4c28bc, #bd46bd, #7d11a5, #6a11cb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 100px;
+}
+
+// Subtitle styles
+.data-table-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Karla", sans-serif;
+  color: #4c28bc;
+  margin-bottom: 20px;
+  margin-top: -40px;
+  font-style: italic; // Added to make it italic
+}
+
+// Container
+.container {
+  max-width: 1000px;
+  margin: auto;
+  text-align: left;
+  padding: 20px;
+}
+
+// Table styles
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: "Proxima Nova", sans-serif; // Apply Proxima Nova font
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+
+th {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  background-color: #f2f2f2;
+  text-align: left;
+  color: #4c28bc;
+  align-items: center; // Align icons and text in one line
+  padding: 10px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 8px; // Space between icons and label
+}
+
+.sort-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #4c28bc;
+}
+
+.sort-icons span {
+  line-height: 10px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.sort-icons span.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+th span {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #4c28bc;
+}
+
+// Alternating row colors (Very Light Purple)
+tbody tr:nth-child(odd) {
+  background-color: #fdf8ff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-family: "Agrandir", sans-serif; // Ensure Agrandir is applied
+
+  button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #4c28bc;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: "Agrandir", sans-serif; // Apply Agrandir font to buttons
+    transition: background-color 0.3s;
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: #6a11cb;
+    }
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4c28bc;
+    font-family: "Agrandir", sans-serif; // Apply Agrandir to the text
+  }
+}
