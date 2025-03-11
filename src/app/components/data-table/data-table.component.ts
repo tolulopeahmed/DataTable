@@ -29,7 +29,7 @@ export class DataTableComponent implements OnInit {
 
   // Pagination properties
   currentPage: number = 1;
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 7;
   totalPages: number = 1;
 
   constructor(private dataTableService: DataTableService) {}
